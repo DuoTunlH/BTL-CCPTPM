@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Loai"
+    tools:openDrawer="start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#03A9F4"
+            app:titleTextColor="@color/white">
+
+            <ImageView
+                android:id="@+id/imgCart0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:src="@drawable/ic_menu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Trang Chủ"
+                android:textSize="@dimen/_15sdp" />
+
+            <EditText
+                android:id="@+id/edtsearch"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:background="@drawable/border_edittext"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="Tìm kiếm..."
+                android:paddingLeft="@dimen/_5sdp" />
+
+            <ImageView
+                android:id="@+id/iconsearch"
+                android:layout_width="@dimen/_23sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/_18sdp"
+                android:src="@drawable/ic_search" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyView_PhanLoai"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:itemTextColor="@color/danhmuc"
+        app:menu="@menu/danhmuc" />
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".chitiet_tap">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_tap"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:background="#00BCD4"
+                android:src="@drawable/img" />
+
+            <ImageView
+                android:id="@+id/imgCart2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_margin="@dimen/_5sdp"
+                android:src="@drawable/ic_left" />
+
+            <TextView
+                android:id="@+id/txttacgia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/_250sdp"
+                android:text="Cẩm thương"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:padding="@dimen/_10sdp"
+            android:text="Tập 1: nobita gặp doraemon như thế nào ?"
+            android:textColor="#222222"
+            android:textSize="@dimen/_20sdp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/tt_SoTrang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số trang: "
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/txtSoTrang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tt_SoTrang"
+                android:text="15 trang"
+                android:textSize="@dimen/_15sdp" />
+
+            <Button
+                android:id="@+id/btnDoc"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:background="@drawable/background_btn"
+                android:text="đọc"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tt_SoTrang"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:text="Yêu thích"
+                    android:textSize="@dimen/_14sdp" />
+
+                <CheckBox
+                    android:id="@+id/tym"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/tym" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:gravity="center"
+            android:paddingTop="@dimen/_5sdp">
+
+            <EditText
+                android:id="@+id/edtCmt"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/border_edittext"
+                android:hint="Viết bình luận..."
+                android:paddingLeft="@dimen/_5sdp" />
+
+            <Button
+                android:id="@+id/btngui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:text="gửi" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="Các bình luận"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    </ScrollView>
+    <ListView
+        android:id="@+id/ls_cmt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_5sdp" />
+</LinearLayout>

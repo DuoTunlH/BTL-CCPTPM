@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E8E8"
+    android:gravity="center"
+    tools:context=".thongtincanhan">
+
+    <TextView
+        android:id="@+id/txttitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lin_image_person"
+        android:layout_marginLeft="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Thông tin cá nhân"
+        android:textColor="#D03B75"
+        android:textSize="@dimen/_20sdp" />
+
+    <LinearLayout
+        android:id="@+id/lin_image_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/image_circle"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/person" />
+
+        <TextView
+            android:id="@+id/txtusername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="username"
+            android:textColor="#D03B75"
+            android:textSize="@dimen/_18sdp" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/edtTen"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_below="@+id/txttitle"
+        android:background="@drawable/border_edittext"
+        android:enabled="false"
+        android:hint="Nhập tên mới"
+        android:padding="@dimen/_5sdp" />
+
+    <EditText
+        android:id="@+id/edtEmailCN"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_below="@+id/edtTen"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/border_edittext"
+        android:hint="Nhập Email"
+        android:padding="@dimen/_5sdp" />
+
+    <EditText
+        android:id="@+id/edtPhoneCN"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_below="@+id/edtEmailCN"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/border_edittext"
+        android:hint="Nhập Phone"
+        android:padding="@dimen/_5sdp" />
+
+    <EditText
+        android:id="@+id/edtMatKhauCN"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_below="@+id/edtPhoneCN"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/border_edittext"
+        android:hint="Nhập Mật Khẩu"
+        android:padding="@dimen/_5sdp" />
+
+    <Button
+        android:id="@+id/btnLuu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtMatKhauCN"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/background_btn"
+        android:text="Lưu"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    android:orientation="vertical"
+    tools:context=".giaodiendoctruyen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgback"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:src="@drawable/ic_left" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgback"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center"
+            android:paddingRight="@dimen/_10sdp"
+            android:text="ĐỌC TRUYỆN"
+            android:textColor="#10B5F3"
+            android:textSize="@dimen/_20sdp" />
+    </RelativeLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerGD"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
