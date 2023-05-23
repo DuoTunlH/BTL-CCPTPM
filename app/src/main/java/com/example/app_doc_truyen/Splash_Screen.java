@@ -13,13 +13,13 @@ public class Splash_Screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        // new Handler().postDelayed(new Runnable() {
-        //     @Override
-        //     public void run() {
-        //         Intent intent = new Intent(Splash_Screen.this, DangNhap.class);
-        //         startActivity(intent);
-        //         overridePendingTransition(R.anim.fade_in, R.anim.fade_in);
-        //     }
-        // }, SPLASH_TIMES_OUT);
+         new Handler().postDelayed(new Runnable() {
+             @Override
+             public void run() {
+                 Intent intent = new Intent(Splash_Screen.this, DangNhap.class);
+                 startActivity(intent);
+                 overridePendingTransition(R.anim.fade_in, R.anim.fade_in);
+             }
+         }, SPLASH_TIMES_OUT);
     }
 }
