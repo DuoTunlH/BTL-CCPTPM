@@ -1,5 +1,8 @@
 package com.example.app_doc_truyen;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -8,9 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.app_doc_truyen.common.common;
 import com.example.app_doc_truyen.common.common_user;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,7 +45,18 @@ public class DoiPassword extends AppCompatActivity {
                     passOld.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
             }
         });
-//
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                pass = snapshot.child(common_user.user).child("matkhau").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

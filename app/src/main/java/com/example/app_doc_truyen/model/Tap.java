@@ -1,6 +1,6 @@
 package com.example.app_doc_truyen.model;
 
-import com.example.app_doc_truyen.model.ListBL.ListView_BL;
+import com.example.app_doc_truyen.ListBL.ListView_BL;
 
 import java.util.List;
 

@@ -1,5 +1,7 @@
 package com.example.app_doc_truyen;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.app_doc_truyen.common.common;
 import com.example.app_doc_truyen.common.common_user;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -52,6 +53,8 @@ public class thongtincanhan extends AppCompatActivity {
                 databaseReference.child(username).child("phone").setValue(phone);
                 databaseReference.child(username).child("matkhau").setValue(pass);
                 Toast.makeText(getApplicationContext(), "dữ liệu đã được cập nhật", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(thongtincanhan.this, Loai.class);
+                startActivity(intent);
             }
         });
     }
