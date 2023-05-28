@@ -37,7 +37,7 @@ public class DangKy extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DangKy.this, DangNhap.class);
-                
+                startActivity(intent);
             }
         });
         btnDangKy.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class DangKy extends AppCompatActivity {
                         databaseReference.child(TenDK).setValue(user_helper);
                         Toast.makeText(getApplicationContext(), "đã đăng ký thành công", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(DangKy.this, DangNhap.class);
-                        
+                        startActivity(intent);
                     } else {
                         Toast.makeText(getApplicationContext(), "xác nhận mật khẩu chưa đúng", Toast.LENGTH_SHORT).show();
                     }
@@ -79,5 +79,48 @@ public class DangKy extends AppCompatActivity {
             return true;
     }
 
-    
+    private Boolean validXNPass() {
+        String XNPass = edtXacNhanMatKhau.getText().toString();
+        if (XNPass.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "trường Xác nhận mật khẩu không được để trống", Toast.LENGTH_SHORT).show();
+            edtXacNhanMatKhau.requestFocus();
+            return false;
+        } else
+            return true;
+    }
+
+    private Boolean validPass() {
+        String valPass = "^" + "(?=.*[a-zA-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$)" + ".{4,}" + "$";
+        String Pass = edtMatKhau.getText().toString();
+        if (Pass.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "trường Mật khẩu không được để trống", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (!Pass.matches(valPass)) {
+            Toast.makeText(getApplicationContext(), "Mật khẩu chưa đủ mạnh", Toast.LENGTH_SHORT).show();
+            edtMatKhau.requestFocus();
+            return false;
+        } else return true;
+    }
+
+    private Boolean validPhone() {
+        String Phone = edtSoDienThoai.getText().toString();
+        if (Phone.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "trường số điện thoại không được để trống", Toast.LENGTH_SHORT).show();
+            edtSoDienThoai.requestFocus();
+            return false;
+        } else return true;
+    }
+
+    private Boolean validEmail() {
+        String email = edtEmail.getText().toString();
+        if (email.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "trường email không được để trống", Toast.LENGTH_SHORT).show();
+            edtEmail.requestFocus();
+            return false;
+        } else if (!email.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")) {
+            Toast.makeText(getApplicationContext(), "địa chỉ email chưa hợp lệ", Toast.LENGTH_SHORT).show();
+            edtEmail.requestFocus();
+            return false;
+        } else return true;
+    }
 }

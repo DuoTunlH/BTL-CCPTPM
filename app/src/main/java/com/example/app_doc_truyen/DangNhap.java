@@ -50,7 +50,7 @@ public class DangNhap extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DangNhap.this, DangKy.class);
-                
+                startActivity(intent);
             }
         });
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +78,7 @@ public class DangNhap extends AppCompatActivity {
                                 bundle.putString("mk", mk);
                                 intent.putExtras(bundle);
                                 Toast.makeText(getApplicationContext(), "Đăng Nhập thành công", Toast.LENGTH_SHORT).show();
-                                
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "sai password", Toast.LENGTH_SHORT).show();
                             }
