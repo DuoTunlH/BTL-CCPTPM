@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.app_doc_truyen.common.common_user;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -43,22 +44,19 @@ public class DangKy extends AppCompatActivity {
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (validTenDK() && validEmail() && validPhone() && validPass() && validXNPass()) ;
+                if (validTenDK() && validEmail() && validPhone() && validPass() && validXNPass())
                 {
                     String pass = edtMatKhau.getText().toString();
                     String xnpass = edtXacNhanMatKhau.getText().toString();
                     if (pass.equals(xnpass)) {
-                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
-                        String TenDK = edtTenDK.getText().toString();
-                        String email = edtEmail.getText().toString();
-                        String phone = edtSoDienThoai.getText().toString();
-                        String mk = edtMatKhau.getText().toString();
-
-                        user_helper user_helper = new user_helper(TenDK, email, phone, mk);
-                        databaseReference.child(TenDK).setValue(user_helper);
-                        Toast.makeText(getApplicationContext(), "đã đăng ký thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(DangKy.this, DangNhap.class);
+                        common_user.user = edtTenDK.getText().toString();
+                        common_user.email = edtEmail.getText().toString();
+                        common_user.phone = edtSoDienThoai.getText().toString();
+                        common_user.password = edtMatKhau.getText().toString();
+                        Intent intent = new Intent(DangKy.this, XacThucNguoiDung.class);
+                        intent.putExtra("phonenumber" , common_user.phone);
                         startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "xác nhận mật khẩu chưa đúng", Toast.LENGTH_SHORT).show();
                     }

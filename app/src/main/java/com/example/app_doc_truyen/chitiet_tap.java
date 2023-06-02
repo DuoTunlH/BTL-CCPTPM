@@ -1,13 +1,16 @@
 package com.example.app_doc_truyen;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -136,11 +139,50 @@ public class chitiet_tap extends AppCompatActivity {
         btnGui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cmt_arr.add(new ListView_BL(common_user.user, Cmt.getText().toString()));
-                databaseReference.child(common.phanloai_item.Name).child("truyens").child(String.valueOf(common.truyen_position)).child("taps").child(String.valueOf(position)).child("binhluan").setValue(cmt_arr);
-                loader_listview(cmt_arr);
-                Cmt.setText("");
-                Toast.makeText(chitiet_tap.this, "Bình luận xong", Toast.LENGTH_SHORT).show();
+                if (!Cmt.getText().toString().isEmpty()) {
+                    cmt_arr.add(new ListView_BL(common_user.user, Cmt.getText().toString()));
+                    databaseReference.child(common.phanloai_item.Name).child("truyens").child(String.valueOf(common.truyen_position)).child("taps").child(String.valueOf(position)).child("binhluan").setValue(cmt_arr);
+                    loader_listview(cmt_arr);
+                    Cmt.setText("");
+                    Toast.makeText(chitiet_tap.this, "Bình luận xong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(chitiet_tap.this, "Giữ bình luận nếu muốn xóa", Toast.LENGTH_SHORT).show();
+
+                } else
+                    Toast.makeText(chitiet_tap.this, "Nội dung bình luận trống", Toast.LENGTH_SHORT).show();
+            }
+        });
+        lsViewCmt.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (cmt_arr.get(i).getUser().equals(common_user.user)) {
+                    int vitri = i ;
+                    AlertDialog.Builder builder = new AlertDialog.Builder(chitiet_tap.this);
+                    builder.setTitle("Thông báo").setMessage("Bạn có chắc chắn muốn xóa bình luận này");
+                    builder.setCancelable(true);
+                    builder.setIcon(R.drawable.ic_delete);
+                    builder.setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            cmt_arr.remove(vitri);
+                            databaseReference.child(common.phanloai_item.Name).child("truyens").child(String.valueOf(common.truyen_position)).child("taps").child(String.valueOf(position)).child("binhluan").setValue(cmt_arr);
+                            loader_listview(cmt_arr);
+                            Toast.makeText(chitiet_tap.this, "Đã xóa bình luận", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(chitiet_tap.this, "Bạn đã hủy thao tác xóa", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
+                } else {
+                    Toast.makeText(chitiet_tap.this, "Bạn không thể xóa bình luận này", Toast.LENGTH_SHORT).show();
+
+                }
+                return true;
             }
         });
     }

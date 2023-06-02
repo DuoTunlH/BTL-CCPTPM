@@ -51,6 +51,7 @@ public class truyen extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(truyen.this, Loai.class);
                 startActivity(intent);
+                finish();
             }
         });
         search.addTextChangedListener(new TextWatcher() {

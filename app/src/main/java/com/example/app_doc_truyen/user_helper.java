@@ -7,7 +7,7 @@ public class user_helper {
     private List<String> yeuthich;
 
     public user_helper(String tenDK, String email, String phone, String matkhau) {
-        TenDK = tenDK;
+        this.TenDK = tenDK;
         this.email = email;
         this.phone = phone;
         this.matkhau = matkhau;

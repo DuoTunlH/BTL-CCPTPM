@@ -51,6 +51,7 @@ public class DangNhap extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DangNhap.this, DangKy.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnDangNhap.setOnClickListener(new View.OnClickListener() {

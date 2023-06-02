@@ -38,8 +38,9 @@
                 android:id="@+id/txttacgia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="@dimen/_250sdp"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/_180sdp"
+                android:layout_marginRight="@dimen/_5sdp"
                 android:text="Cẩm thương"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -84,7 +85,7 @@
                 android:layout_marginRight="@dimen/_20sdp"
                 android:background="@drawable/background_btn"
                 android:text="đọc"
-                android:textColor="@color/white" />
+                android:textColor="#00000C" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -128,6 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_5sdp"
+                android:background="@drawable/background_btn"
                 android:text="gửi" />
         </LinearLayout>
 

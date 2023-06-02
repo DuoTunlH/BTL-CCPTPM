@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".XacThucNguoiDung">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:text="Xác Thực Người dùng"
+        android:textColor="#0089C6"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:text="Mã xác thực đã được gửi đến số điện thoại đăng ký" />
+
+    <EditText
+        android:id="@+id/edtnumner_verification"
+        android:layout_width="350dp"
+        android:textColor="#878787"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_edittext"
+        android:fontFamily="sans-serif-light"
+        android:hint="Nhập mã xác thực"
+        android:padding="10dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="có thể gửi lại mã sau: 00:" />
+
+        <TextView
+            android:id="@+id/txtBodem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="59" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnXacThuc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="200dp"
+            android:background="@drawable/background_btn"
+            android:minWidth="150dp"
+            android:text="Xác thực"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnGuiLai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="200dp"
+            android:enabled="false"
+            android:minWidth="150dp"
+            android:text="Gửi lại"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/Pbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

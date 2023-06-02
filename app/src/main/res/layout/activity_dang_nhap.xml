@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B7D1CE"
+    android:background="@drawable/background_login_register"
     android:orientation="vertical"
     tools:context=".DangNhap">
 
@@ -22,7 +22,7 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="ĐĂNG NHẬP"
-        android:textColor="#D03B75"
+        android:textColor="#0073A6"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -34,6 +34,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@drawable/border_edittext"
+        android:fontFamily="sans-serif-light"
         android:hint="Tên đăng nhập"
         android:paddingLeft="5dp" />
 
@@ -44,16 +45,19 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/border_edittext"
+        android:fontFamily="sans-serif-light"
         android:hint="Mật khẩu"
         android:inputType="textPassword"
         android:paddingLeft="5dp" />
 
     <CheckBox
         android:id="@+id/ckeHienMK"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_40sdp"
-        android:text="Hiển thị mật khẩu" />
+        android:layout_gravity="center"
+        android:buttonTint="@color/white"
+        android:text="Hiển thị mật khẩu"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnDangNhap"
@@ -72,6 +76,7 @@
         android:layout_marginTop="10dp"
         android:maxWidth="400dp"
         android:text="Bằng cách nhấn Đăng Nhập bạn cũng đồng ý với điều khoản sử dụng"
+        android:textColor="@color/white"
         android:textSize="10dp" />
 
     <LinearLayout
@@ -85,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Bạn chưa có tài khoản ?"
+            android:textColor="@color/white"
             android:textSize="10dp" />
 
         <TextView
@@ -92,9 +98,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="đăng ký"
-            android:textColor="#D80E0E"
-            android:textSize="10dp" />
+            android:text="Đăng ký"
+            android:textColor="#F12B2B"
+            android:textSize="10dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 

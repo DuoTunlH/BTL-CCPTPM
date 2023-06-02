@@ -68,6 +68,7 @@ public class Loai extends AppCompatActivity {
                 case R.id.menuUaThich:
                     Intent intent = new Intent(Loai.this, UaThich.class);
                     startActivity(intent);
+                    finish();
                     break;
                 case R.id.thongtincanhan:
                     Intent intent1 = new Intent(Loai.this, thongtincanhan.class);
@@ -78,14 +79,17 @@ public class Loai extends AppCompatActivity {
                     bundle.putString("mk", common_user.password);
                     intent1.putExtras(bundle);
                     startActivity(intent1);
+                    finish();
                     break;
                 case R.id.pass:
                     Intent intent2 = new Intent(Loai.this, DoiPassword.class);
                     startActivity(intent2);
+                    finish();
                     break;
                 case R.id.logout:
                     Intent intent3 = new Intent(Loai.this, DangNhap.class);
                     startActivity(intent3);
+                    finish();
                     break;
             }
             drawerLayout.closeDrawer(GravityCompat.START);

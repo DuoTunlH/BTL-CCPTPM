@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class thongtincanhan extends AppCompatActivity {
-    EditText edtTen, edtemail, edtphone, edtmk;
+    EditText edtTen, edtemail, edtphone;
     Button btnLuu;
     TextView txtusername;
 
@@ -28,7 +28,6 @@ public class thongtincanhan extends AppCompatActivity {
         edtTen = findViewById(R.id.edtTen);
         edtemail = findViewById(R.id.edtEmailCN);
         edtphone = findViewById(R.id.edtPhoneCN);
-        edtmk = findViewById(R.id.edtMatKhauCN);
         txtusername = findViewById(R.id.txtusername);
 
         Bundle bundle = getIntent().getExtras();
@@ -40,21 +39,30 @@ public class thongtincanhan extends AppCompatActivity {
         edtTen.setText(common_user.user);
         edtemail.setText( common_user.email);
         edtphone.setText(common_user.phone);
-        edtmk.setText(common_user.password);
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = edtemail.getText().toString();
                 String phone = edtphone.getText().toString();
-                String pass = edtmk.getText().toString();
+                String pass = common_user.password;
                 String username = edtTen.getText().toString();
-                databaseReference.child(username).child("email").setValue(email);
-                databaseReference.child(username).child("phone").setValue(phone);
-                databaseReference.child(username).child("matkhau").setValue(pass);
-                Toast.makeText(getApplicationContext(), "dữ liệu đã được cập nhật", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(thongtincanhan.this, Loai.class);
-                startActivity(intent);
+                if(email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")){
+                    if(phone.matches("^0\\d{8,10}$")){
+                        databaseReference.child(username).child("email").setValue(email);
+                        databaseReference.child(username).child("phone").setValue(phone);
+                        databaseReference.child(username).child("matkhau").setValue(pass);
+                        common_user.email = email;
+                        common_user.phone = phone;
+                        Toast.makeText(getApplicationContext(), "Dữ liệu đã được cập nhật", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(thongtincanhan.this, Loai.class);
+                        startActivity(intent);
+                    }
+                    else
+                        Toast.makeText(thongtincanhan.this, "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else Toast.makeText(thongtincanhan.this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

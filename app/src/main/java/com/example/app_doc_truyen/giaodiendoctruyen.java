@@ -38,6 +38,7 @@ public class giaodiendoctruyen extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(giaodiendoctruyen.this, tap.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

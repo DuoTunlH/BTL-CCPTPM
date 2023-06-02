@@ -79,6 +79,7 @@ public class tap extends AppCompatActivity {
                 bundle.putInt("position", i);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                finish();
             }
         });
         imgCart1.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +87,7 @@ public class tap extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(tap.this, truyen.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
